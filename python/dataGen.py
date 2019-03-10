@@ -99,7 +99,7 @@ def fakerecord_clnt():
 def fakerecord_security():
     return {'sec_cd': faker.numerify('###'),  # random number eg:235533
             'bus_cd': random.choice(business_cd),  # choice of business code
-            'validity_start_dt': date_between('jan01-2019', 'mar10-2018'),  # different name
+            'validity_start_dt': date_between('jan01-2019', 'mar10-2019'),  # different name
             'sec_long_nm': '~~SEC' + faker.name(),  # open date
             'sec_short_nm': faker.isbn10(separator="-") ,  # close date
             'sec_tic_cd': 'TD',  # line of business
