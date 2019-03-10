@@ -127,24 +127,24 @@ def fakerecord_security():
             }
 			
 def fakerecord_psn():
-    return {bus_cd : random.choice(business_cd),
-			psn_dt : date_between('jan01-2019', 'mar10-2019'),
-			acc_unique_id: faker.numerify('########'),
-			sec_cd : faker.numerify('###'),
-			psn_trd_qty : faker.numerify('######'),
-			psn_sett_qty : faker.numerify('######'),
-			psn_mkt_pr: faker.numerify('###'),
-			psn_trd_cost_amt: 'TD',
-			psn_trd_mkt_val_amt : 'TD',
-			psn_sett_mkt_val_amt : 'TD',
-			psn_net_mkt_val_amt : 'TD',
-			psn_trd_accr_income_amt : 'TD',
-			psn_sett_accr_income_amt : 'TD',
-			psn_trd_unrealized_gn_ls_amt :'TD',
-			psn_trd_urrealized_gn_ls_amt :'TD',
-			src_upd_time: date_between('jan01-2019', 'mar10-2019') ,
-			rec_add_time:  date_between('jan01-2019', 'mar10-2019') ,
-			rec_upd_time:  date_between('jan01-2019', 'mar10-2019') 
+    return {'bus_cd' : random.choice(business_cd),
+			'psn_dt' : date_between('jan01-2019', 'mar10-2019'),
+			'acc_unique_id': faker.numerify('########'),
+			'sec_cd' : faker.numerify('###'),
+			'psn_trd_qty' : faker.numerify('######'),
+			'psn_sett_qty' : faker.numerify('######'),
+			'psn_mkt_pr': faker.numerify('###'),
+			'psn_trd_cost_amt': 'TD',
+			'psn_trd_mkt_val_amt' : 'TD',
+			'psn_sett_mkt_val_amt' : 'TD',
+			'psn_net_mkt_val_amt' : 'TD',
+			'psn_trd_accr_income_amt' : 'TD',
+			'psn_sett_accr_income_amt' : 'TD',
+			'psn_trd_unrealized_gn_ls_amt' :'TD',
+			'psn_trd_urrealized_gn_ls_amt' :'TD',
+			'src_upd_time': date_between('jan01-2019', 'mar10-2019') ,
+			'rec_add_time':  date_between('jan01-2019', 'mar10-2019') ,
+			'rec_upd_time':  date_between('jan01-2019', 'mar10-2019') 
 
 
             }
@@ -160,12 +160,17 @@ if os.path.exists(filename_clnt):
 	
 if os.path.exists(filename_secrty):
     os.remove(filename_secrty)
+	
+if os.path.exists(filename_psn):
+    os.remove(filename_psn)
 			
 account_data = pandas.DataFrame([fakerecord() for _ in range(1000)],columns=['acc_unique_id','bus_cd','name','dt_opened','dt_closed','line_of_bus_cd','stat_cd','clnt_unique_id','brnch_cd','lng_nm','src_upd_time','rec_add_time','rec_upd_time']).to_csv(filename, sep=',', encoding='utf-8')
 
 client_acc = pandas.DataFrame([fakerecord_clntAcc() for _ in range(1000)]).to_csv(filename_clntAcc, sep=',', encoding='utf-8')
 client = pandas.DataFrame([fakerecord_clnt() for _ in range(1000)]).to_csv(filename_clnt, sep=',', encoding='utf-8')
 security = pandas.DataFrame([fakerecord_security() for _ in range(1000)]).to_csv(filename_secrty, sep=',', encoding='utf-8')
+position=pandas.DataFrame([fakerecord_psn() for _ in range(1000)]).to_csv(filename_psn, sep=',', encoding='utf-8')
+
 # cols = account_data.columns.tolist()
 # print(cols)
 # account_data = account_data.reindex_axis(['acc_unique_id','bus_cd','name','dt_opened','dt_closed','line_of_bus_cd','stat_cd','clnt_unique_id','brnch_cd','lng_nm','src_upd_time','rec_add_time','rec_upd_time'], axis=1)
