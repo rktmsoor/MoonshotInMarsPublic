@@ -21,6 +21,7 @@ filename="C:\\RAKTIM\\acc.csv"
 filename_clntAcc="C:\\RAKTIM\\clntAcc.csv"
 filename_clnt="C:\\RAKTIM\\clnt.csv"
 filename_secrty="C:\\RAKTIM\\sec.csv"
+filename_psn="C:\\RAKTIM\\psn.csv"
 def date_between(d1, d2):
     f = '%b%d-%Y'
     return faker.date_time_between_dates(datetime.strptime(d1, f), datetime.strptime(d2, f))
@@ -133,14 +134,14 @@ def fakerecord_psn():
 			psn_trd_qty : faker.numerify('######'),
 			psn_sett_qty : faker.numerify('######'),
 			psn_mkt_pr: faker.numerify('###'),
-			psn_trd_cost_amt: 
-			psn_trd_mkt_val_amt :
-			psn_sett_mkt_val_amt :
-			psn_net_mkt_val_amt :
-			psn_trd_accr_income_amt :
-			psn_sett_accr_income_amt :
-			psn_trd_unrealized_gn_ls_amt :
-			psn_trd_urrealized_gn_ls_amt :
+			psn_trd_cost_amt: 'TD',
+			psn_trd_mkt_val_amt : 'TD',
+			psn_sett_mkt_val_amt : 'TD',
+			psn_net_mkt_val_amt : 'TD',
+			psn_trd_accr_income_amt : 'TD',
+			psn_sett_accr_income_amt : 'TD',
+			psn_trd_unrealized_gn_ls_amt :'TD',
+			psn_trd_urrealized_gn_ls_amt :'TD',
 			src_upd_time: date_between('jan01-2019', 'mar10-2019') ,
 			rec_add_time:  date_between('jan01-2019', 'mar10-2019') ,
 			rec_upd_time:  date_between('jan01-2019', 'mar10-2019') 
